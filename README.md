@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 📁 File Organizer - Smart Storage Cleaner
 
 A powerful local web application for organizing files, identifying unused files, and cleaning up storage space. Features an interactive network graph visualization and intelligent file detection to help you free up disk space.
@@ -108,9 +109,12 @@ npm run dev
 | `/api/types` | GET | Get file type distribution |
 | `/api/stats` | GET | Get cache stats |
 | `/api/invalidate` | POST | Invalidate cache |
+| `/api/unused` | GET | Get unused files (query: path, daysNotAccessed, minSize) |
+| `/api/large` | GET | Get large files (query: path, minSizeMB, limit) |
 
 ## 🎨 How to Use
 
+### Graph View
 1. **Enter a Path**: Type a directory path in the header (default: ~/Documents)
 2. **Click Scan**: The app will scan and visualize all files
 3. **Interact with Graph**:
@@ -119,6 +123,19 @@ npm run dev
    - **Click a node** to see file details
 4. **Filter**: Use the sidebar to filter by file type
 5. **Search**: Use the search box to find specific files
+
+### Unused Files View
+1. **Click "🗑️ Unused Files"** tab
+2. **Select time period** (30, 60, 90, 180, 365 days)
+3. **Set minimum size** filter if needed
+4. **Review results** sorted by size (largest first)
+5. **See potential savings** at the top
+
+### Large Files View
+1. **Click "📦 Large Files"** tab
+2. **Set minimum size** (10MB - 1GB)
+3. **Review ranked list** of largest files
+4. **Click any file** for details
 
 ## 🔒 Security Considerations
 
@@ -148,6 +165,8 @@ This implementation applies patterns from:
 - [ ] Dark mode
 - [ ] File preview modal
 - [ ] Batch operations (move, delete, rename)
+- [ ] Export unused files list (CSV/JSON)
+- [ ] Duplicate file detection
 
 ## 🐛 Troubleshooting
 
@@ -162,3 +181,17 @@ This implementation applies patterns from:
 **No files showing:**
 - Verify the path exists and is accessible
 - Check backend logs for permission errors
+
+---
+
+## 📄 License
+
+MIT License - Feel free to use this project for your storage cleaning needs!
+
+## 🙏 Acknowledgments
+
+Built with patterns from:
+- `react-best-practices` - Performance optimization, component structure
+- `nodejs-backend-patterns` - Layered architecture, error handling, middleware
+- `file-organizer` - File scanning and organization patterns
+- `performance-engineer` - Multi-tier caching, optimization strategies
